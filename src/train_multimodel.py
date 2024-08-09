@@ -80,7 +80,8 @@ def train_model(context, parkings_di: mlrun.DataItem, window: int = 60,
     df_clean.posti_occupati = df_clean.apply(lambda x: max(0, min(x['posti_totali'], x['posti_occupati'])), axis=1)
     df_clean['occupied'] = df_clean.posti_occupati / df_clean.posti_totali
     df_clean = df_clean.drop(columns=['lat', 'lon', 'data', 'posti_totali', 'posti_liberi', 'posti_occupati'])
-    parcheggi = df_clean['parcheggio'].unique()
+    # parcheggi = df_clean['parcheggio'].unique()
+    parcheggi = ['Riva Reno' ,'VIII Agosto']
 
     train_sets, val_sets = [], []
 
